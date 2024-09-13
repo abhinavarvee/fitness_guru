@@ -1,0 +1,31 @@
+/* Dashboard.css */
+
+/* Light mode styles */
+body {
+    background: linear-gradient(135deg, #4fabcf, #ce7e41);
+    color: #000000;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard {
+    padding: 20px;
+}
+
+.card {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
