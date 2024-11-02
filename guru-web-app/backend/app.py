@@ -8,11 +8,8 @@ import os
 from dotenv import load_dotenv
 
 app = Flask(__name__)
-app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')  # Change this to a strong secret key
+app.config['JWT_SECRET_KEY'] = 'f5b12e71b4a23c6ecd000211fd40e447'  # Change this to a strong secret key
 jwt = JWTManager(app)
-
-load_dotenv()
-google_api_key = os.getenv("GOOGLE_API_KEY")
 
 model = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",
@@ -34,7 +31,7 @@ chain = LLMChain(
     memory=memory
 )
 
-users = {'user@mail.com': 'password', 'sabarish@mail.com': '1234'}
+users = {'abhi@mail.com': 'password', 'sabarish@mail.com': '1234', 'mail@mail.xo' : 'pass'}
 
 @app.route('/api/login', methods=['POST'])
 def login():

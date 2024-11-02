@@ -1,14 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 import './Chatbot.css';
 
 const Chatbot: React.FC = () => {
     const [chatInput, setChatInput] = useState('');
     const [chatHistory, setChatHistory] = useState<string[]>([]);
+    const chatHistoryRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         document.title = 'Fitness Guru Chatbot';
+        setChatHistory(['Bot: Hello! How can I help you today?']);
     }, []);
+
+    useEffect(() => {
+        if (chatHistoryRef.current) {
+            chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
+        }
+    }, [chatHistory]);
 
     const handleChatSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -25,7 +34,7 @@ const Chatbot: React.FC = () => {
                         Authorization: `Bearer ${token}`
                     }
                 });
-                setChatHistory([...chatHistory, `You: ${chatInput}`, `Bot: ${response.data.response}`]);
+                setChatHistory(prevHistory => [...prevHistory, `Bot: ${response.data.response}`]);
             } catch (error) {
                 console.error('Error sending chat message:', error);
                 if (axios.isAxiosError(error) && error.response && error.response.status === 401) {
@@ -38,11 +47,12 @@ const Chatbot: React.FC = () => {
 
     return (
         <div className="chatbot-container">
-            <h1>Chat with our ChatBot</h1>
             <div className="chatbox">
-                <div className="chat-history">
+                <div className="chat-history" ref={chatHistoryRef}>
                     {chatHistory.map((message, index) => (
-                        <p key={index}>{message}</p>
+                        <div key={index}>
+                            <ReactMarkdown>{message}</ReactMarkdown>
+                        </div>
                     ))}
                 </div>
                 <form onSubmit={handleChatSubmit} className="chat-form">
