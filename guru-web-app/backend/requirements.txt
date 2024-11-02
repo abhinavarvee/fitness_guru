@@ -1,0 +1,8 @@
+Flask
+flask_jwt_extended
+flask_cors
+python-dotenv  # Correct package for environment variables
+langchain
+langchain-core
+langchain-google-genai
+beautifulsoup4
