@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
@@ -9,15 +9,11 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
       const response = await axios.post('/api/login', { email, password });
-
-
-      // Assuming a token or success message is returned from the backend
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
     } catch (err) {
@@ -26,7 +22,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -47,9 +43,10 @@ const Login = () => {
             required
           />
         </div>
-        {error && <p>{error}</p>}
+        {error && <p className="error-message">{error}</p>}
         <button type="submit">Login</button>
       </form>
+      <p>Don't have an account? <Link to="/register">Register here</Link></p>
     </div>
   );
 };

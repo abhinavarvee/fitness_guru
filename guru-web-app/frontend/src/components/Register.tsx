@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
 
@@ -14,7 +14,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/register', { email, password });
+      // const response = await axios.post('/api/register', { email, password });
       setSuccess('User registered successfully');
       setError('');
       setTimeout(() => {
