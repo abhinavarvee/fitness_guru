@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:5000',  // Flask backend
+      '/api': process.env.VITE_API_URL || "https://fitness-guru-igqa.onrender.com",  // Flask backend
     },
   },
 });

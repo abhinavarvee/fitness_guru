@@ -14,12 +14,12 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/fitness_guru/api/login', { email, password });
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, { email, password });
 
 
       // Assuming a token or success message is returned from the backend
       localStorage.setItem('token', response.data.token);
-      navigate('/fitness_guru/dashboard');
+      navigate('/dashboard');
     } catch (err) {
       setError('Invalid email or password');
     }

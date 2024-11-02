@@ -1,9 +1,10 @@
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from auth import auth_bp  # Import the blueprint
+import os
 
 app = Flask(__name__)
-app.config['JWT_SECRET_KEY'] = 'f5b12e71b4a23c6ecd000211fd40e447'  # Change this to a strong secret key
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')  # Change this to a strong secret key
 jwt = JWTManager(app)
 
 # Register the blueprint with the app
