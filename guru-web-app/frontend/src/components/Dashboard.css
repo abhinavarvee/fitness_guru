@@ -7,8 +7,35 @@ body {
     font-family: Arial, sans-serif;
 }
 
+h1 {
+    margin-top: 30px;
+}
+
 .dashboard {
     padding: 20px;
+}
+.chatbot-link-container {
+    background-color: #126087!important;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chatbot-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-link:hover {
+    background-color: #0056b3;
 }
 
 .card {
@@ -17,6 +44,30 @@ body {
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 20px;
+}
+
+/* .chatbot-link-container {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+} */
+
+.chatbot-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-link:hover {
+    background-color: #0056b3;
 }
 
 /* Dark mode styles */
