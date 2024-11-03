@@ -50,7 +50,7 @@ const Chatbot: React.FC = () => {
             <div className="chatbox">
                 <div className="chat-history" ref={chatHistoryRef}>
                     {chatHistory.map((message, index) => (
-                        <div key={index}>
+                        <div key={index} className={message.startsWith('You:') ? 'user-message' : 'bot-message'}>
                             <ReactMarkdown>{message}</ReactMarkdown>
                         </div>
                     ))}
