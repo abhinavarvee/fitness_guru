@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 import './Chatbot.css';
+import './Dashboard.css';
 
 const Chatbot: React.FC = () => {
     const [chatInput, setChatInput] = useState('');
@@ -10,7 +11,7 @@ const Chatbot: React.FC = () => {
 
     useEffect(() => {
         document.title = 'Fitness Guru Chatbot';
-        setChatHistory(['Bot: Hello! How can I help you today?']);
+        setChatHistory(['Guru: Hello! How can I help you with your fitness today?']);
     }, []);
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const Chatbot: React.FC = () => {
                         Authorization: `Bearer ${token}`
                     }
                 });
-                setChatHistory(prevHistory => [...prevHistory, `Bot: ${response.data.response}`]);
+                setChatHistory(prevHistory => [...prevHistory, `Guru: ${response.data.response}`]);
             } catch (error) {
                 console.error('Error sending chat message:', error);
                 if (axios.isAxiosError(error) && error.response && error.response.status === 401) {
@@ -46,25 +47,28 @@ const Chatbot: React.FC = () => {
     };
 
     return (
-        <div className="chatbot-container">
-            <div className="chatbox">
-                <div className="chat-history" ref={chatHistoryRef}>
-                    {chatHistory.map((message, index) => (
-                        <div key={index}>
-                            <ReactMarkdown>{message}</ReactMarkdown>
-                        </div>
-                    ))}
+        <div className="bb">
+
+            <div className="chatbot-container">
+                <div className="chatbox">
+                    <div className="chat-history" ref={chatHistoryRef}>
+                        {chatHistory.map((message, index) => (
+                            <div key={index}>
+                                <ReactMarkdown>{message}</ReactMarkdown>
+                            </div>
+                        ))}
+                    </div>
+                    <form onSubmit={handleChatSubmit} className="chat-form">
+                        <input
+                            type="text"
+                            value={chatInput}
+                            onChange={(e) => setChatInput(e.target.value)}
+                            placeholder="Type your message..."
+                            className="chat-input"
+                        />
+                        <button type="submit" className="chat-submit">Send</button>
+                    </form>
                 </div>
-                <form onSubmit={handleChatSubmit} className="chat-form">
-                    <input
-                        type="text"
-                        value={chatInput}
-                        onChange={(e) => setChatInput(e.target.value)}
-                        placeholder="Type your message..."
-                        className="chat-input"
-                    />
-                    <button type="submit" className="chat-submit">Send</button>
-                </form>
             </div>
         </div>
     );
