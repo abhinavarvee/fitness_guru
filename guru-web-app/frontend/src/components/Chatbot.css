@@ -13,61 +13,84 @@
     height: 92vh;
     padding: 20px;
 }
-/* font-family: Arial, sans-serif;
-margin: 0 auto; */
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 /* max-width: 600px; */
 .chatbox {
     /* min-width: 1000px; */
-    width: 90vw;
+    width: 90vw;   /* Chk */
     border: 1px solid #333;
-    border-radius: 8px;
-    padding: 10px;
+    /* border-radius: 8px;  */
+    border-radius: 10px; 
+    /* padding: 10px; */
+    padding: 20px;
     background-color: #1e1e1e;
+    margin-bottom: 20px; /* Chk */
 }
 
 .chat-history {
-    color: #ffffffe9;
-    max-height: 70vh;
+    max-height: 70vh;   /* Chk */
     overflow-y: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;   /* Chk */
+    /*  removed .... 
+    color: #ffffffe9;
     padding: 10px;
     border: 1px solid #444;
     border-radius: 4px;
-    background-color: #2e2e2e;
+    background-color: #2e2e2e; */
 }
 
-.chat-history p {
-    margin: 5px 0;
+.user-message {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: left;
 }
+
+.bot-message {
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+/* .chat-history p {
+    margin: 5px 0;
+} */
 
 .chat-form {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .chat-input {
     flex: 1;
-    width: 97%;
-    border: 1px solid #444;
-    margin: 10px;
-    background-color: #2e2e2e;
-    color: #ffffff;
+    width: 97%;   /* Chk */
+    border: none;
+    padding: 10px;   /* Chk */
+    /* border: 1px solid #444; */
+    /* margin: 10px; */
+    margin-right: 10px;
+    border-radius: 5px;
+    /* background-color: #2e2e2e;
+    color: #ffffff; */
 }
 
 .chat-submit {
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
+    border-radius: 5px;
+    background-color: #4caf50;
+    /* background-color: #007bff; */
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.3s ease; */
 }
 
 .chat-submit:hover {
