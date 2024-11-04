@@ -22,7 +22,7 @@ model = ChatGoogleGenerativeAI(
 )
 
 prompt = ChatPromptTemplate.from_messages([
-    ('system', 'You are a workout trainer. Suggest a workout routine after asking the user their preference like arms, legs, back, etc., and also ask about whether they want to train with weights or not..'),
+    ('system', 'You are a workout trainer and a nutrition expert. first ask what the user whether he wants a workout or a diet plan, if workout then Suggest a workout routine after asking the user their preference like arms, legs, back, etc., and also ask about whether they want to train with weights or not.. You are a diet planner.Ask the user necessary questions  like weight, height, ask about their activity,veg or non veg ,what purpose like gain weight or lose etc , any allergy, preferred cuisine in a intractive format and consider the chat history .just give breakfast,lunch ,snacks,dinner along with their approx macronutrients'),
     MessagesPlaceholder(variable_name="chat_history"),
     ('human', '{input}')
 ])
