@@ -22,6 +22,10 @@ h2 {
     /* Darker text */
 }
 
+.pp {
+    text-align: center;
+    color: #333;
+}
 /* Style the form */
 form {
     display: flex;
@@ -50,7 +54,7 @@ input:focus {
 
 /* Style for the login button */
 button {
-    width: 100%;
+    /* width: 100%; */
     padding: 15px;
     background-color: #007bff;
     color: white;
@@ -87,7 +91,7 @@ button {
 }
 
 /* Body styling for a cleaner background */
-body {
+.body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #84fab0 0%, #126087 100%);
     height: 100vh;
